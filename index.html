@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kairah Studio — Divine Cinematics</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 <style>
-body { font-family:'Inter', sans-serif; background:#1b1b1b; color:#fff; scroll-behavior:smooth; }
-h1,h2,h3{color:#D4AF37;}
+body { font-family:'Poppins', sans-serif; background:#1b1b1b; color:#fff; scroll-behavior:smooth; }
+h1,h2,h3{color:#D4AF37; font-family:'Cinzel Display', serif;}
 .shimmer { background: linear-gradient(90deg, rgba(212,175,55,0) 0%, rgba(212,175,55,0.8) 50%, rgba(212,175,55,0) 100%); background-size: 200% 100%; animation: shimmer 2s infinite; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 @keyframes shimmer {0% {background-position:-200% 0;} 100% {background-position:200% 0;}}
 section{padding:4rem 1rem;}
@@ -26,6 +27,9 @@ button:disabled{background:#555 !important; cursor:not-allowed;}
 .toggle-switch { display:flex; justify-center; gap:1rem; margin-bottom:1rem; }
 .toggle-switch button { padding:0.5rem 1rem; border-radius:0.5rem; font-weight:bold; transition:all 0.3s; }
 .toggle-active { background:#D4AF37; color:#000; }
+.card { background:rgba(50,30,60,0.8); border-radius:1rem; padding:1.5rem; box-shadow:0 8px 20px rgba(0,0,0,0.5);}
+.accordion { cursor:pointer; padding:1rem; border-radius:0.5rem; background:rgba(50,30,60,0.6); margin-bottom:0.5rem;}
+.accordion-content { max-height:0; overflow:hidden; transition:max-height 0.3s ease; padding-left:0;}
 </style>
 </head>
 <body>
@@ -59,65 +63,140 @@ button:disabled{background:#555 !important; cursor:not-allowed;}
     <button id="freeBtn" class="bg-yellow-400 px-6 py-2 rounded font-semibold hover:bg-yellow-500 transition" onclick="generateVideo('free')">▶ 6-sec Preview</button>
     <button id="proBtn" class="bg-yellow-400 px-6 py-2 rounded font-semibold hover:bg-yellow-500 transition" onclick="generateVideo('pro')">▶ Full Video</button>
   </div>
+  <button id="boosterBtn" class="mt-2 bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded" onclick="activateBooster()">🔥 Fame Booster $9</button>
   <p id="status" class="mt-2 text-center"></p>
 </section>
 
 <!-- Features -->
 <section>
-  <h2 class="text-3xl font-bold text-center mb-4">Royal Filters • Prompt Magic • Emotion AI</h2>
-  <div class="max-w-3xl mx-auto text-center space-y-4">
-    <p><strong>Royal Beauty Engine™</strong> — Teal-gold cinematic glow, skin-softening light and lens-style effects tailored for beauty and emotion.</p>
-    <p><strong>Prompt Magic AI™</strong> — Type a line. Get a script. Story beats, camera direction, and scene templates generated for you.</p>
-    <p><strong>Kairah Fame Boost</strong> — $9 viral boost add-on — promote top clips through our distribution network for fast traction.</p>
+  <h2 class="text-3xl font-bold text-center mb-4">What Members Can Do</h2>
+  <div class="max-w-4xl mx-auto space-y-3">
+    <p>🎞 <strong>Full-Length AI Videos (2–3 mins)</strong> — Cats, humans, fantasy, products, or stories.</p>
+    <p>🧩 <strong>Clip Merging & Editing</strong> — Combine up to 10 scenes into one seamless video.</p>
+    <p>🔊 <strong>AI Music + Voice</strong> — Background music or voiceovers from Kairah’s library.</p>
+    <p>💫 <strong>4K Export & Branding Tools</strong> — Download watermark-free HD/4K videos.</p>
+    <p>🪄 <strong>Prompt Magic Pro</strong> — Expands short ideas into full scripts.</p>
+    <p>🧺 <strong>Bulk Generator</strong> — Create multiple videos at once from one theme or script.</p>
+    <p>🧠 <strong>Scene Control</strong> — Choose lighting, mood, cinematic camera angles.</p>
+    <p>👑 <strong>Royal Filters</strong> — Signature teal-gold glow, fantasy light, dreamy skies.</p>
+    <p>📺 <strong>Series Creator</strong> — Build ongoing episodes (great for YouTube or brand series).</p>
+    <p>🔥 <strong>Kairah Fame Boost</strong> — Push videos to social media for virality.</p>
+  </div>
+</section>
+
+<!-- Signature Advantage Table -->
+<section>
+  <h2 class="text-3xl font-bold text-center mb-4">Kairah Studio’s Signature Advantage</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full text-white text-center border-collapse border border-gray-600">
+      <thead>
+        <tr>
+          <th class="border border-gray-600 px-2 py-1">Feature</th>
+          <th class="border border-gray-600 px-2 py-1">Kairah Studio</th>
+          <th class="border border-gray-600 px-2 py-1">Runway/Kaiber/Pika/Sora</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="border border-gray-600 px-2 py-1">Beauty & Royal Aesthetic</td><td class="border border-gray-600 px-2 py-1">Teal-gold, cinematic lighting, humanized elegance</td><td class="border border-gray-600 px-2 py-1">Technical realism only</td></tr>
+        <tr><td class="border border-gray-600 px-2 py-1">Storytelling Engine</td><td class="border border-gray-600 px-2 py-1">Emotional, script-driven, continuity scenes</td><td class="border border-gray-600 px-2 py-1">Scene-limited prompts</td></tr>
+        <tr><td class="border border-gray-600 px-2 py-1">Royal Filters & FX</td><td class="border border-gray-600 px-2 py-1">Signature glow, fantasy atmospheres</td><td class="border border-gray-600 px-2 py-1">Generic LUTs</td></tr>
+        <tr><td class="border border-gray-600 px-2 py-1">Prompt Magic AI</td><td class="border border-gray-600 px-2 py-1">Expands short text into cinematic scripts</td><td class="border border-gray-600 px-2 py-1">Static input only</td></tr>
+        <tr><td class="border border-gray-600 px-2 py-1">Merge & Bulk Creator</td><td class="border border-gray-600 px-2 py-1">Combine 10+ clips into full-length film</td><td class="border border-gray-600 px-2 py-1">Separate renders only</td></tr>
+        <tr><td class="border border-gray-600 px-2 py-1">Voice + Music Integration</td><td class="border border-gray-600 px-2 py-1">In-built narration & music sync</td><td class="border border-gray-600 px-2 py-1">External editing needed</td></tr>
+        <tr><td class="border border-gray-600 px-2 py-1">Emotional Animation Layer</td><td class="border border-gray-600 px-2 py-1">Facial nuance, light emotion, cinematic tone</td><td class="border border-gray-600 px-2 py-1">Lacks mood modeling</td></tr>
+        <tr><td class="border border-gray-600 px-2 py-1">Kairah Fame Integration</td><td class="border border-gray-600 px-2 py-1">Viral push + sound trends system</td><td class="border border-gray-600 px-2 py-1">No built-in marketing tools</td></tr>
+        <tr><td class="border border-gray-600 px-2 py-1">Royal Identity</td><td class="border border-gray-600 px-2 py-1">Feels alive, spiritual, artful</td><td class="border border-gray-600 px-2 py-1">Feels corporate or robotic</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
 <!-- Pricing -->
 <section>
-  <h2 class="text-3xl font-bold text-center mb-4">Pricing</h2>
+  <h2 class="text-3xl font-bold text-center mb-4">Choose Your Royal Plan</h2>
   <div class="toggle-switch">
     <button id="monthlyBtn" class="toggle-active" onclick="setBilling('monthly')">Monthly</button>
     <button id="yearlyBtn" onclick="setBilling('yearly')">Yearly</button>
   </div>
-  <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-6 text-center">
-    <div class="bg-gray-800 p-6 rounded shadow-lg">
+  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-4">
+    <div class="card text-center">
       <h3 class="text-xl font-bold mb-2">Free</h3>
-      <p id="freePrice">$0</p>
-      <ul class="mb-4">
-        <li>1 free 6s video (watermarked)</li>
-        <li>Preview all tools</li>
-        <li>Prompt Magic (lite)</li>
-      </ul>
-      <button class="bg-yellow-400 px-4 py-2 rounded font-semibold hover:bg-yellow-500 transition">Get Free Demo</button>
+      <p>Curious creators — try before paying</p>
+      <p class="my-2">1 free 6s video (watermarked)<br>Preview all tools<br>Prompt Magic (lite)</p>
+      <button onclick="subscribe('Free')" class="bg-yellow-400 px-4 py-2 rounded mt-2 hover:bg-yellow-500">Get Free Demo</button>
     </div>
-    <div class="bg-gray-700 p-6 rounded shadow-lg">
+    <div class="card text-center">
       <h3 class="text-xl font-bold mb-2">Pro</h3>
-      <p id="proPrice">$19</p>
-      <ul class="mb-4">
-        <li>Up to 1-minute videos</li>
-        <li>10 generations / month</li>
-        <li>1080p export</li>
-        <li>Merge 3 clips</li>
-      </ul>
-      <button class="bg-yellow-400 px-4 py-2 rounded font-semibold hover:bg-yellow-500 transition" onclick="subscribe('Pro')">Get Pro Demo</button>
+      <p>Entry creators — low cost, high reward</p>
+      <p class="my-2" id="proPrice">$19</p>
+      <p>Up to 1-min videos<br>10 generations / month<br>1080p export<br>Merge 3 clips</p>
+      <button onclick="subscribe('Pro')" class="bg-yellow-400 px-4 py-2 rounded mt-2 hover:bg-yellow-500">Get Pro Demo</button>
+      <button class="bg-green-600 px-4 py-2 mt-2 rounded hover:bg-green-700">PayPal</button>
+      <button class="bg-blue-600 px-4 py-2 mt-2 rounded hover:bg-blue-700">Stripe</button>
     </div>
-    <div class="bg-gray-600 p-6 rounded shadow-lg">
+    <div class="card text-center">
+      <h3 class="text-xl font-bold mb-2">Diamond</h3>
+      <p>Influencers & brand users — best value</p>
+      <p class="my-2" id="diamondPrice">$49 / month</p>
+      <p>2-min videos<br>20 generations / month<br>4K export<br>Merge 5 clips</p>
+      <button onclick="subscribe('Diamond')" class="bg-yellow-400 px-4 py-2 rounded mt-2 hover:bg-yellow-500">Get Diamond</button>
+      <button class="bg-green-600 px-4 py-2 mt-2 rounded hover:bg-green-700">PayPal</button>
+      <button class="bg-blue-600 px-4 py-2 mt-2 rounded hover:bg-blue-700">Stripe</button>
+    </div>
+    <div class="card text-center">
+      <h3 class="text-xl font-bold mb-2">Cinematic</h3>
+      <p>Studios & agencies — ultimate creative control</p>
+      <p class="my-2">$99 / month</p>
+      <p>3-min videos<br>Unlimited generations<br>4K+ export<br>Merge 10 clips</p>
+      <button onclick="subscribe('Cinematic')" class="bg-yellow-400 px-4 py-2 rounded mt-2 hover:bg-yellow-500">Get Cinematic</button>
+      <button class="bg-green-600 px-4 py-2 mt-2 rounded hover:bg-green-700">PayPal</button>
+      <button class="bg-blue-600 px-4 py-2 mt-2 rounded hover:bg-blue-700">Stripe</button>
+    </div>
+    <div class="card text-center md:col-span-2">
       <h3 class="text-xl font-bold mb-2">Lifetime</h3>
-      <p id="lifetimePrice">$500</p>
-      <ul class="mb-4">
-        <li>Unlimited cinematic videos</li>
-        <li>Full Prompt Magic AI™</li>
-        <li>Kairah Fame Boost included</li>
-      </ul>
-      <button class="bg-yellow-400 px-4 py-2 rounded font-semibold hover:bg-yellow-500 transition" onclick="subscribe('Lifetime')">Get Lifetime</button>
+      <p>Loyal believers — one-time lifetime prestige</p>
+      <p class="my-2" id="lifetimePrice">$500 (launch special)</p>
+      <p>Unlimited videos<br>Full features<br>Fame Booster included</p>
+      <button onclick="subscribe('Lifetime')" class="bg-yellow-400 px-4 py-2 rounded mt-2 hover:bg-yellow-500">Get Lifetime</button>
+      <button class="bg-green-600 px-4 py-2 mt-2 rounded hover:bg-green-700">PayPal</button>
+      <button class="bg-blue-600 px-4 py-2 mt-2 rounded hover:bg-blue-700">Stripe</button>
     </div>
   </div>
 </section>
 
+<!-- About Section -->
+<section>
+  <h2 class="text-3xl font-bold text-center mb-4">About Kairah Studio</h2>
+  <div class="max-w-4xl mx-auto">
+    <div class="accordion">What is Kairah Studio?</div>
+    <div class="accordion-content"><p>A cinematic AI video generator blending divine beauty, storytelling, and viral potential.</p></div>
+    <div class="accordion">How does it work?</div>
+    <div class="accordion-content"><p>Users input prompts; AI generates multi-scene videos with Royal Filters, music, and voiceovers.</p></div>
+    <div class="accordion">What is Meow Meow Universe?</div>
+    <div class="accordion-content"><p>Signature series of videos focusing on cute, viral, cinematic storytelling.</p></div>
+  </div>
+</section>
+
+<!-- Affiliate Section -->
+<section>
+  <h2 class="text-3xl font-bold text-center mb-4">Affiliate Program</h2>
+  <p class="text-center max-w-xl mx-auto">Share videos and subscriptions to earn commissions. Influencers and creators can get dashboard tracking, referral links, and performance analytics.</p>
+</section>
+
+<!-- Settings Section -->
+<section>
+  <h2 class="text-3xl font-bold text-center mb-4">Settings</h2>
+  <p class="text-center max-w-xl mx-auto">Mock dashboard: profile, subscription plan, video preferences, notification settings.</p>
+</section>
+
+<!-- Support Section -->
+<section>
+  <h2 class="text-3xl font-bold text-center mb-4">Support</h2>
+  <p class="text-center">Contact us at <a href="mailto:keishapoa@gmail.com" class="underline text-yellow-400">keishapoa@gmail.com</a></p>
+</section>
+
 <!-- Footer -->
-<footer class="text-center p-6 mt-12">
-  <p>&copy; 2025 Kairah Studio. Crafted with 💛 by Kairah.</p>
-</footer>
+<footer class="text-center mt-8 py-4 text-sm">© 2025 Kairah Empire — Beyond Reality. Into Royalty.</footer>
 
 <script>
 // Pricing toggle
@@ -127,6 +206,7 @@ function setBilling(type){
   document.getElementById('monthlyBtn').classList.toggle('toggle-active', type==='monthly');
   document.getElementById('yearlyBtn').classList.toggle('toggle-active', type==='yearly');
   document.getElementById('proPrice').textContent=(type==='monthly')?'$19':'$300/yr';
+  document.getElementById('diamondPrice').textContent=(type==='monthly')?'$49':'$450/yr';
   document.getElementById('lifetimePrice').textContent=(type==='monthly')?'$500':'$500 (launch special)';
 }
 
@@ -135,7 +215,7 @@ let user={loggedIn:false,plan:null};
 function subscribe(plan){user.loggedIn=true; user.plan=plan; alert(`✨ Subscribed to ${plan}!`); updateVideoButtons();}
 function updateVideoButtons(){
   const proBtn=document.getElementById('proBtn');
-  if(user.loggedIn && (user.plan==='Pro'||user.plan==='Lifetime')){ proBtn.classList.remove('locked'); proBtn.disabled=false; }
+  if(user.loggedIn && (['Pro','Diamond','Cinematic','Lifetime'].includes(user.plan))){ proBtn.classList.remove('locked'); proBtn.disabled=false; }
   else{ proBtn.classList.add('locked'); proBtn.disabled=true; }
 }
 
@@ -155,8 +235,8 @@ function generateVideo(type){
   
   clearInterval(sceneInterval);
 
-  if(type==='pro' && !(user.loggedIn && (user.plan==='Pro'||user.plan==='Lifetime'))){
-    status.textContent="🔒 Upgrade to Pro/Lifetime to generate full videos.";
+  if(type==='pro' && !(user.loggedIn && (['Pro','Diamond','Cinematic','Lifetime'].includes(user.plan)))){
+    status.textContent="🔒 Upgrade to Pro/Diamond/Cinematic/Lifetime to generate full videos.";
     video.src=""; return;
   }
 
@@ -176,7 +256,17 @@ function generateVideo(type){
     },10000); // Change every 10s
   }
 }
+function activateBooster(){alert("🔥 Fame Booster activated!");}
 updateVideoButtons();
+
+// Accordion for About
+const acc=document.querySelectorAll('.accordion');
+acc.forEach(a=>{a.addEventListener('click',()=>{
+  a.classList.toggle('active');
+  const panel=a.nextElementSibling;
+  if(panel.style.maxHeight){panel.style.maxHeight=null;}
+  else{panel.style.maxHeight=panel.scrollHeight+"px";}
+})});
 </script>
 
 </body>
