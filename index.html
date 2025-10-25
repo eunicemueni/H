@@ -3,25 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kairah Studio — Divine Cinematics by AI</title>
+<title>Kairah Studio — Divine Cinematics</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-body { font-family:'Inter', sans-serif; background: linear-gradient(135deg, #3D2C41 0%, #D4AF37 100%); color:#fff; scroll-behavior: smooth; }
+body { font-family:'Inter', sans-serif; background:#1b1b1b; color:#fff; scroll-behavior:smooth; }
+h1,h2,h3{color:#D4AF37;}
 .shimmer { background: linear-gradient(90deg, rgba(212,175,55,0) 0%, rgba(212,175,55,0.8) 50%, rgba(212,175,55,0) 100%); background-size: 200% 100%; animation: shimmer 2s infinite; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes shimmer {0% {background-position:-200% 0;} 100% {background-position:200% 0;}}
 section{padding:4rem 1rem;}
-button:disabled{background:#555 !important;cursor:not-allowed;}
-.locked{opacity:0.6; pointer-events:none;}
 textarea { resize:none; width:100%; padding:0.75rem; border-radius:0.5rem; color:black; }
+button:disabled{background:#555 !important; cursor:not-allowed;}
+.locked{opacity:0.6; pointer-events:none;}
 .video-container { position: relative; max-width:720px; margin:2rem auto; }
-.video-container video { border-radius:0.75rem; box-shadow:0 10px 30px rgba(0,0,0,0.4); width:100%; }
+.video-container video { border-radius:0.75rem; box-shadow:0 10px 30px rgba(0,0,0,0.6); width:100%; }
 .sparkle { position: absolute; width:5px; height:5px; background: rgba(212,175,55,0.8); border-radius:50%; opacity:0.8; animation: sparkleAnim 4s linear infinite; }
-.sparkle1 { top: 10%; left: 20%; animation-delay:0s; }
-.sparkle2 { top: 50%; left: 70%; animation-delay:1.5s; }
-.sparkle3 { top: 80%; left: 40%; animation-delay:3s; }
-@keyframes sparkleAnim { 0% { transform: scale(1) translateY(0) rotate(0deg); opacity:0.8; } 50% { transform: scale(1.5) translateY(-10px) rotate(45deg); opacity:0.5; } 100% { transform: scale(1) translateY(0) rotate(90deg); opacity:0.8; } }
-.watermark { position: absolute; top: 1rem; left:50%; transform:translateX(-50%); font-weight:bold; font-size:1.5rem; color:rgba(212,175,55,0.85); animation: bounce 2s infinite; pointer-events:none; }
-@keyframes bounce { 0%,100% { transform:translateX(-50%) translateY(0); } 50% { transform:translateX(-50%) translateY(-5px); } }
+.sparkle1 { top:10%; left:20%; animation-delay:0s; }
+.sparkle2 { top:50%; left:70%; animation-delay:1.5s; }
+.sparkle3 { top:80%; left:40%; animation-delay:3s; }
+@keyframes sparkleAnim {0% {transform:scale(1) translateY(0) rotate(0deg); opacity:0.8;} 50% {transform:scale(1.5) translateY(-10px) rotate(45deg); opacity:0.5;} 100% {transform:scale(1) translateY(0) rotate(90deg); opacity:0.8;}}
+.watermark { position:absolute; top:1rem; left:50%; transform:translateX(-50%); font-weight:bold; font-size:1.5rem; color:rgba(212,175,55,0.85); animation:bounce 2s infinite; pointer-events:none;}
+@keyframes bounce {0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(-5px);}}
 .toggle-switch { display:flex; justify-center; gap:1rem; margin-bottom:1rem; }
 .toggle-switch button { padding:0.5rem 1rem; border-radius:0.5rem; font-weight:bold; transition:all 0.3s; }
 .toggle-active { background:#D4AF37; color:#000; }
@@ -33,7 +34,7 @@ textarea { resize:none; width:100%; padding:0.75rem; border-radius:0.5rem; color
 <section class="text-center">
   <h1 class="text-5xl md:text-6xl font-bold shimmer">Beyond Reality. Into Royalty.</h1>
   <p class="mt-4 text-lg md:text-2xl max-w-xl mx-auto">
-    Kairah Studio is a cinematic AI video generator that blends divine beauty and emotional storytelling. Create studio-grade films, viral shorts, and the signature Meow Meow universe — all in one place.
+    Kairah Studio is a cinematic AI video generator blending divine beauty, storytelling, and the signature Meow Meow universe.
   </p>
   <div class="mt-6 flex justify-center gap-4 flex-wrap">
     <button class="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded font-semibold transition">Create Your First Royal Video</button>
@@ -43,7 +44,7 @@ textarea { resize:none; width:100%; padding:0.75rem; border-radius:0.5rem; color
 </section>
 
 <!-- Video Preview -->
-<section class="fade-in">
+<section>
   <h2 class="text-3xl font-bold text-center mb-4">Cinematic Preview</h2>
   <p class="text-center mb-4">(Mock player) — your Meow Meow episode will render here)</p>
   <div class="video-container">
@@ -62,7 +63,7 @@ textarea { resize:none; width:100%; padding:0.75rem; border-radius:0.5rem; color
 </section>
 
 <!-- Features -->
-<section class="fade-in">
+<section>
   <h2 class="text-3xl font-bold text-center mb-4">Royal Filters • Prompt Magic • Emotion AI</h2>
   <div class="max-w-3xl mx-auto text-center space-y-4">
     <p><strong>Royal Beauty Engine™</strong> — Teal-gold cinematic glow, skin-softening light and lens-style effects tailored for beauty and emotion.</p>
@@ -72,14 +73,14 @@ textarea { resize:none; width:100%; padding:0.75rem; border-radius:0.5rem; color
 </section>
 
 <!-- Pricing -->
-<section class="fade-in">
+<section>
   <h2 class="text-3xl font-bold text-center mb-4">Pricing</h2>
   <div class="toggle-switch">
     <button id="monthlyBtn" class="toggle-active" onclick="setBilling('monthly')">Monthly</button>
     <button id="yearlyBtn" onclick="setBilling('yearly')">Yearly</button>
   </div>
   <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-6 text-center">
-    <div class="bg-purple-700 p-6 rounded shadow-lg">
+    <div class="bg-gray-800 p-6 rounded shadow-lg">
       <h3 class="text-xl font-bold mb-2">Free</h3>
       <p id="freePrice">$0</p>
       <ul class="mb-4">
@@ -89,7 +90,7 @@ textarea { resize:none; width:100%; padding:0.75rem; border-radius:0.5rem; color
       </ul>
       <button class="bg-yellow-400 px-4 py-2 rounded font-semibold hover:bg-yellow-500 transition">Get Free Demo</button>
     </div>
-    <div class="bg-purple-600 p-6 rounded shadow-lg">
+    <div class="bg-gray-700 p-6 rounded shadow-lg">
       <h3 class="text-xl font-bold mb-2">Pro</h3>
       <p id="proPrice">$19</p>
       <ul class="mb-4">
@@ -100,7 +101,7 @@ textarea { resize:none; width:100%; padding:0.75rem; border-radius:0.5rem; color
       </ul>
       <button class="bg-yellow-400 px-4 py-2 rounded font-semibold hover:bg-yellow-500 transition" onclick="subscribe('Pro')">Get Pro Demo</button>
     </div>
-    <div class="bg-purple-500 p-6 rounded shadow-lg">
+    <div class="bg-gray-600 p-6 rounded shadow-lg">
       <h3 class="text-xl font-bold mb-2">Lifetime</h3>
       <p id="lifetimePrice">$500</p>
       <ul class="mb-4">
@@ -115,7 +116,7 @@ textarea { resize:none; width:100%; padding:0.75rem; border-radius:0.5rem; color
 
 <!-- Footer -->
 <footer class="text-center p-6 mt-12">
-  <p>&copy; 2025 Kairah Studio. All Rights Reserved. Crafted with 💛 by Kairah.</p>
+  <p>&copy; 2025 Kairah Studio. Crafted with 💛 by Kairah.</p>
 </footer>
 
 <script>
@@ -129,7 +130,7 @@ function setBilling(type){
   document.getElementById('lifetimePrice').textContent=(type==='monthly')?'$500':'$500 (launch special)';
 }
 
-// Mock user & video logic
+// Mock user & video logic with multi-scene sequences
 let user={loggedIn:false,plan:null};
 function subscribe(plan){user.loggedIn=true; user.plan=plan; alert(`✨ Subscribed to ${plan}!`); updateVideoButtons();}
 function updateVideoButtons(){
@@ -137,19 +138,43 @@ function updateVideoButtons(){
   if(user.loggedIn && (user.plan==='Pro'||user.plan==='Lifetime')){ proBtn.classList.remove('locked'); proBtn.disabled=false; }
   else{ proBtn.classList.add('locked'); proBtn.disabled=true; }
 }
+
+// Mock clip sequences
 const freeClips=["https://samplelib.com/lib/preview/mp4/sample-5s.mp4"];
-const proClips=["https://samplelib.com/lib/preview/mp4/sample-30s.mp4"];
+const proSequences=[
+  ["https://samplelib.com/lib/preview/mp4/sample-10s.mp4","https://samplelib.com/lib/preview/mp4/sample-15s.mp4","https://samplelib.com/lib/preview/mp4/sample-10s.mp4"]
+];
+
+let currentScene=0;
+let sceneInterval;
+
 function generateVideo(type){
   const status=document.getElementById('status');
   const video=document.getElementById('videoPreview');
   const promptText=document.getElementById('prompt').value.trim();
-  let clips=(type==='free')?freeClips:proClips;
+  
+  clearInterval(sceneInterval);
+
   if(type==='pro' && !(user.loggedIn && (user.plan==='Pro'||user.plan==='Lifetime'))){
-    status.textContent="🔒 Upgrade to Pro/Lifetime to generate full videos."; video.src=""; return;
+    status.textContent="🔒 Upgrade to Pro/Lifetime to generate full videos.";
+    video.src=""; return;
   }
-  const idx=(promptText.length || Math.floor(Math.random()*clips.length)) % clips.length;
-  video.src=clips[idx]; video.play();
-  status.textContent=(type==='free')?"🎬 Playing 6-sec preview...":"🎬 Playing full cinematic video...";
+
+  if(type==='free'){
+    video.src=freeClips[0]; video.play();
+    status.textContent="🎬 Playing 6-sec preview...";
+  } else {
+    currentScene=0;
+    video.src=proSequences[0][currentScene];
+    video.play();
+    status.textContent=`🎬 Playing scene ${currentScene+1}...`;
+    sceneInterval=setInterval(()=>{
+      currentScene++;
+      if(currentScene>=proSequences[0].length){ clearInterval(sceneInterval); status.textContent="🎬 Full cinematic video finished."; return; }
+      video.src=proSequences[0][currentScene]; video.play();
+      status.textContent=`🎬 Playing scene ${currentScene+1}...`;
+    },10000); // Change every 10s
+  }
 }
 updateVideoButtons();
 </script>
